@@ -18,8 +18,8 @@ npm run test:ci
 `npm ci` installs the committed `package-lock.json` without changing dependency
 versions. The build type-checks the plugin and produces `main.js` and
 `styles.css` beside `manifest.json`. No website build or publishing step is needed.
-Direct dependency versions are retained from the original Yarn lockfile where
-possible; broader dependency upgrades are separate work.
+Build and test tools are pinned in `package.json` and the lockfile. Runtime
+dependency upgrades are handled separately.
 
 ## Install in your vault
 

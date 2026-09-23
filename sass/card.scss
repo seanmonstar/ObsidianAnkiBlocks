@@ -1,11 +1,11 @@
-@import 'consts';
+@use 'consts';
 
 div.ankibridge-card {
     overflow         : hidden;
     page-break-inside: avoid;
 
     background-color: var(--background-secondary);
-    border-radius   : $border-radius;
+    border-radius   : consts.$border-radius;
     box-shadow      : 0 0.2rem 0.5rem var(--background-modifier-box-shadow);
     position        : relative;
 
@@ -37,7 +37,7 @@ div.ankibridge-card {
             position: absolute;
 
             background-color: var(--interactive-accent);
-            border-radius   : $border-radius;
+            border-radius   : consts.$border-radius;
 
             transition: transform 0.2s ease-out, opacity 0.2s ease-in;
             transform : translateX(100%);
