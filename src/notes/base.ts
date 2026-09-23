@@ -140,6 +140,15 @@ export abstract class NoteBase {
         const frontlike = isCloze ? 'Text' : 'Front'
         const backlike = isCloze ? 'Back Extra' : 'Back'
 
+        const missing = [frontlike, backlike].filter((field) => !noteInfo.fields[field])
+        if (missing.length) {
+            throw new Error(
+                `Anki note type "${noteInfo.modelName}" is missing expected fields: ` +
+                `${missing.map((field) => JSON.stringify(field)).join(', ')}. ` +
+                `Available fields: ${Object.keys(noteInfo.fields).map((field) => JSON.stringify(field)).join(', ')}.`,
+            )
+        }
+
         return {
             [NoteField.Frontlike]: noteInfo.fields[frontlike].value,
             [NoteField.Backlike]: noteInfo.fields[backlike].value,

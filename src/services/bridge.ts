@@ -142,13 +142,17 @@ export class Bridge {
     }
 
     private displayError(e: string, note: NoteBase): void {
-        new Notice(`For note with ID: ${note.id}, we got error:\n\n${_.capitalize(e)}`)
+        new Notice(
+            `Sync failed: ${note.source.file.path}\nAnki note ID: ${note.id ?? 'not yet created'}\n\n${e}`,
+            0,
+        )
     }
 
     /**
      * Returns true if error is not fatal for that note
      */
     private handleError(e: string | Error, note: NoteBase): boolean {
+        this.plugin.error(`Sync failed: ${note.source.file.path} (Anki note ID: ${note.id})`, e)
         if (typeof e === 'string') {
             if (e.startsWith('deck was not found')) {
                 this.displayError(e, note)

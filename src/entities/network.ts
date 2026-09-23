@@ -1,4 +1,4 @@
-import { AnkiField, AnkiFields, ModelName } from 'ankibridge/entities/note'
+import { AnkiFields, ModelName } from 'ankibridge/entities/note'
 
 // General Response
 export interface ResponseEntity {
@@ -154,7 +154,7 @@ export interface NotesInfoResponseEntity {
     modelName: ModelName
     tags: Array<string>
     cards: Array<number>
-    fields: Record<AnkiField, FieldEntity>
+    fields: Record<string, FieldEntity>
 }
 
 export type NotesInfoResponse = Array<NotesInfoResponseEntity>
