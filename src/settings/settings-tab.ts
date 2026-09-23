@@ -34,14 +34,14 @@ export class SettingsTab extends PluginSettingTab {
 
     addVersion(): void {
         new Setting(this.containerEl)
-            .setName(`AnkiBridge Version: ${this.plugin.manifest.version}`)
-            .setDesc('The current AnkiBridge.')
+            .setName(`${this.plugin.manifest.name} Version: ${this.plugin.manifest.version}`)
+            .setDesc('The installed plugin version.')
     }
 
     addDocumentation(): void {
         new Setting(this.containerEl)
             .setName('Open Documentation')
-            .setDesc('Open the documentation for AnkiBridge.')
+            .setDesc('Open the documentation for AnkiBlocks.')
             .addButton((text) => {
                 text.setButtonText('Documentation')
                     .setCta()
@@ -101,7 +101,7 @@ export class SettingsTab extends PluginSettingTab {
     addTester(): void {
         new Setting(this.containerEl)
             .setName('Test Anki Connection')
-            .setDesc('Test that AnkiBridge is able to connect to Anki.')
+            .setDesc('Test that AnkiBlocks is able to connect to Anki.')
             .addButton((text) => {
                 text.setButtonText('Test')
                     .setCta()

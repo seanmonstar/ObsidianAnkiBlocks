@@ -1,0 +1,43 @@
+name: Release for BRAT
+
+on:
+  push:
+    tags:
+      - '[0-9]*.[0-9]*.[0-9]*'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Validate release version
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: node scripts/check-release.mjs "$RELEASE_TAG"
+      - run: npm ci
+      - run: npm run build
+      - run: npm run test:ci
+      - name: Publish plugin assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: >-
+          gh release create "$RELEASE_TAG"
+          main.js manifest.json styles.css
+          --verify-tag
+          --title "$RELEASE_TAG"
+          --notes "Install AnkiBlocks through BRAT using this repository's URL."

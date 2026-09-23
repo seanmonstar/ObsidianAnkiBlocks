@@ -1,7 +1,7 @@
 {
-  "name": "obsidian-ankibridge",
-  "version": "0.8.0",
-  "description": "Yet Another Anki Bridge.",
+  "name": "obsidian-anki-blocks",
+  "version": "0.1.0",
+  "description": "Sync flashcard blocks in Obsidian with Anki.",
   "keywords": [],
   "license": "MIT",
   "author": "Jeppe Klitgaard <hi@jeppe.science>",

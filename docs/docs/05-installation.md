@@ -1,13 +1,13 @@
 # Installation
 
-Build and install this personal fork using the [local installation instructions](../../README.md).
+Install AnkiBlocks through BRAT using the [installation instructions](../../README.md#install-through-brat).
 
 ## Installing AnkiConnect
 
 1. Install [AnkiConnect](https://ankiweb.net/shared/info/2055492159) in Anki
    1. Tools → Add-ons → Get Add-ons...
    2. Paste the code `2055492159` > OK
-2. Press the `Setup` button within the **AnkiBridge** settings in Obsidian
+2. Press the `Setup` button within the **AnkiBlocks** settings in Obsidian
    1. Press `YES` on the Anki pop-up
 
 As an alternative to step 2 you can also paste the configuration below into 
