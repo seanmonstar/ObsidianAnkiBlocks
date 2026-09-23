@@ -4,7 +4,6 @@ import { RequestPermissionResponse } from 'ankibridge/entities/network'
 import { AnkiBridgeError } from 'ankibridge/error'
 import { logError } from 'ankibridge/log'
 import AnkiBridgePlugin from 'ankibridge/main'
-import supportHtml from 'ankibridge/settings/support.html'
 import { App, ButtonComponent, Notice, PluginSettingTab, Setting } from 'obsidian'
 
 import { getProcessorById } from '../processors'
@@ -24,7 +23,6 @@ export class SettingsTab extends PluginSettingTab {
         this.addDocumentation()
         this.addInitialSetup()
         this.addTester()
-        this.addSupport()
         this.addGeneral()
         this.addDefaultDeck()
         this.addNetworking()
@@ -121,30 +119,6 @@ export class SettingsTab extends PluginSettingTab {
                         }
                     })
             })
-    }
-
-    addSupport(): void {
-        this.containerEl.createEl('h2', { text: '❤ Support Me?' })
-        const container = this.containerEl.createDiv('ankibridge-settings-support')
-
-        const template = createEl('template')
-        template.innerHTML = supportHtml.trim()
-
-        const donateButton = template.content.firstChild!
-
-        const donateText = container.createDiv('ankibridge-setting-support-text')
-        donateText.createEl('p', {
-            text: 'Developing AnkiBridge was no small feat and it is (proudly) made available free of charge.',
-        })
-
-        const plea = donateText.createEl('p')
-        plea.innerHTML =
-            'If you <b>want to </b> and <b>are able to</b>, you can throw a much-needed coffee or a much-appreciated coin my way on Ko-fi.'
-
-        const wishes = donateText.createEl('p')
-        wishes.innerHTML = 'All the best,<br><em>Jeppe</em>'
-
-        container.appendChild(donateButton)
     }
 
     addGeneral(): void {

@@ -7,7 +7,7 @@ Each blueprint describes how a note may be laid out in your Obsidian documents,
 and fancy logic behind the scenes ensures that no _collisions_ between two blueprints
 are possible.
 
-Any individual blueprint can be enabled or disabled using the [settings](/settings) tab.
+Any individual blueprint can be enabled or disabled using the [settings](08-settings.md) tab.
 
 ## 🥪 Sandwich
 
@@ -17,11 +17,12 @@ The front and back fields _sandwich_ a `#anki/---` tag.
 The Sandwich blueprint was the first blueprint added and is generally inferior
 to the [BasicCodeBlock blueprint](#-basiccodeblock).
 
-:::info Recommendation
+> **Recommendation**
+>
+>
+> I would recommend changing all Sandwich-style notes to the newer BasicCodeBlock-style
+>
 
-I would recommend changing all Sandwich-style notes to the newer BasicCodeBlock-style
-
-:::
 
 ### Compatibility
 
@@ -120,4 +121,4 @@ $$
 
 ### Appearance in Live Preview
 
-![Live Preview rendering of a BasicCodeBlock note with math](/img/basiccodeblock_livepreview.gif)
+![Live Preview rendering of a BasicCodeBlock note with math](../static/img/basiccodeblock_livepreview.gif)

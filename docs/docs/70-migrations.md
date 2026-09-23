@@ -16,21 +16,22 @@ perform some migrations automatically in the future.
 
 Whether a migration is automatic or manual is clearly sign-posted.
 
-:::danger Updating _from_ `0.4.0` and before
+> **Updating _from_ `0.4.0` and before**
+>
+>
+> If you are upgrading from `0.4.0` or a version prior to that the automatic
+> migration system will not work.
+>
+> As soon as you update to version `0.4.1` or above, _future_ automatic migrations
+> will work.
+>
 
-If you are upgrading from `0.4.0` or a version prior to that the automatic
-migration system will not work.
-
-As soon as you update to version `0.4.1` or above, _future_ automatic migrations
-will work.
-
-:::
 
 ## Migrations
 
 ### `0.4.x ⟶ 0.5.x`
 
-#### MANUAL: Change of configuration codeblock for [Sandwich Blueprint](/blueprints#-sandwich)
+#### MANUAL: Change of configuration codeblock for [Sandwich Blueprint](40-blueprints.md#-sandwich)
 
 The configuration codeblock format was changed from:
 ````md
@@ -48,21 +49,23 @@ deck: …
 ```
 ````
 
-:::danger You must do the following
+> **You must do the following**
+>
+>
+> You will need to manually update all the codeblocks to the new format.
+>
 
-You will need to manually update all the codeblocks to the new format.
 
-:::
-
-This was done to accommodate the new [BasicCodeBlock Blueprint](/blueprints#-basiccodeblock).
+This was done to accommodate the new [BasicCodeBlock Blueprint](40-blueprints.md#-basiccodeblock).
 
 Changing all of the code-blocks is easily done manually at the time of migration
 by using a simple **search-and-replace**.
 
-:::info Suggestion
+> **Suggestion**
+>
+>
+> You might prefer to update your notes to the new [BasicCodeBlock](40-blueprints.md#-basiccodeblock)-format.
+>
 
-You might prefer to update your notes to the new [BasicCodeBlock](/blueprints#-basiccodeblock)-format.
-
-:::
 
 [VSCode](https://code.visualstudio.com/) may be preferable to using Obsidian to do this.

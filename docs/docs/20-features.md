@@ -4,11 +4,11 @@
 
 ### 🦋 Live Preview Rendering
 
-The [BasicCodeBlock Blueprint](/blueprints#-basiccodeblock) offers excellent
+The [BasicCodeBlock Blueprint](40-blueprints.md#-basiccodeblock) offers excellent
 rendering in *Live Preview*, making your notes seamlessly integrate into
 the rest of your beautiful Obsidian notes.
 
-For an example, have a look at the [💃 Demonstration](/demonstration) page.
+For an example, have a look at the [💃 Demonstration](30-demonstration.md) page.
 
 ### 🧮 Math Rendering
 
@@ -22,18 +22,18 @@ correctly be rendered in Anki.
 The deck to upload to is resolved in the following order:
 
 1. The value specified by the deck key of your [note configuration]
-2. The deepest match of your [default deck mapping](/settings#-default-deck-mapping)
-3. The default value specified in [settings](/settings#-default-deck-mapping)
+2. The deepest match of your [default deck mapping](08-settings.md#-default-deck-mapping)
+3. The default value specified in [settings](08-settings.md#-default-deck-mapping)
 
 ### 🏷 Tag Support
 
 You can specify Anki tags for your notes using the [note configuration]
 
-Optionally a global tag for all your notes can be set using the [settings](/settings#-general-settings)
+Optionally a global tag for all your notes can be set using the [settings](08-settings.md#-general-settings)
 
 ### 📘 Blueprints
 
-Your notes are found using [Blueprints](/blueprints) using a `PEG` parser.
+Your notes are found using [Blueprints](40-blueprints.md) using a `PEG` parser.
 
 This has several advantages:
 
@@ -79,12 +79,13 @@ to the front of your cards taking you back to the note in Obsidian.
 **AnkiBridge** will always use the Obsidian note as a ground-truth, so you can
 be sure that the Anki notes reflect what is in your vault.
 
-:::note Always update AnkiBridge cards in Obsidian
+> **Always update AnkiBridge cards in Obsidian**
+>
+>
+> Since **AnkiBridge** uses Obsidian as ground-truth, it will overwrite any
+> changes made to Obsidian-controlled notes in Anki.
+>
 
-Since **AnkiBridge** uses Obsidian as ground-truth, it will overwrite any
-changes made to Obsidian-controlled notes in Anki.
-
-:::
 
 ### 🚮 Delete from Obsidian
 

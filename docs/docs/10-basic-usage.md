@@ -2,26 +2,27 @@
 
 It is time to make your first Anki note **in Obsidian**! 🎉
 
-First ensure that you have followed the instructions in [💿 Installation](/installation)
+First ensure that you have followed the instructions in [💿 Installation](05-installation.md)
 and test that the `Test` button found in the AnkiBridge settings is working.
 
-:::info Remember
+> **Remember**
+>
+>
+> Anki must be running whenever you are syncing (or testing) with – otherwise the sync will simply fail to connect.
+>
+> If that happens, that is fine. Simply start Anki and sync again!
+>
+> You can always see whether **AnkiBridge** has a connection to Anki by looking at the
+> status bar.
+>
+> ![Anki Status No](../static/img/anki_status_no.png)
+> ![Anki Status Yes](../static/img/anki_status_yes.png)
+>
 
-Anki must be running whenever you are syncing (or testing) with – otherwise the sync will simply fail to connect.
-
-If that happens, that is fine. Simply start Anki and sync again!
-
-You can always see whether **AnkiBridge** has a connection to Anki by looking at the
-status bar.
-
-![Anki Status No](/img/anki_status_no.png)
-![Anki Status Yes](/img/anki_status_yes.png)
-
-:::
 
 ## ✍ Writing the first note
 
-Now that you have confirmed that your setup is working, let's make a [BasicCodeBlock](/blueprints#-basiccodeblock)-style note.
+Now that you have confirmed that your setup is working, let's make a [BasicCodeBlock](40-blueprints.md#-basiccodeblock)-style note.
 
 You start out by making an `anki` codeblock like so:
 
@@ -35,7 +36,7 @@ BACK HERE
 ```
 ````
 
-You simple put the [note configuration](/notes#configuration) in the area marked `CONFIG HERE`.
+You simple put the [note configuration](50-notes.md#configuration) in the area marked `CONFIG HERE`.
 
 The front of the Anki card is the content between `---` and `===`, and the back is the remainder of the codeblock (from `===` to ` ``` `).
 
@@ -80,7 +81,7 @@ It should report back that a single note was created in Anki!
 
 !!!info
 The silent version of the active file sync might be useful to set up
-_auto-sync_. For more on this, see [🤖 Auto-Sync](/advanced-usage/auto-sync)
+_auto-sync_. For more on this, see [🤖 Auto-Sync](15-advanced-usage/10-auto-sync.md)
 
 ## 🎉 Congratulations
 

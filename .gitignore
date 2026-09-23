@@ -1,33 +1,17 @@
-# Intellij
-*.iml
-.idea
+node_modules/
+npm-debug.log*
 
-# npm
-node_modules
-
-# We use yarn
-package-lock.json
-
-# Yarn
-yarn-error.log
-.yarn/*
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-
-# build
+# Local build output and plugin settings
 main.js
+styles.css
 *.js.map
 data.json
 rendered_test_file.json
-styles.css
+coverage/
 
-# Visual Studio Code
-.vscode
+# Editors
+*.iml
+.idea/
+.vscode/
 *.code-workspace
-
-# Local History for Visual Studio Code
 .history/

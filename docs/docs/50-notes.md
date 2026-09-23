@@ -1,6 +1,6 @@
 # 📃 Notes
 
-In Obsidian, your notes are simply the [Blueprint](/blueprints)-formatted text
+In Obsidian, your notes are simply the [Blueprint](40-blueprints.md)-formatted text
 in your Obsidian documents.
 
 These will be found by **AnkiBridge** and synchonised to Anki.
@@ -15,7 +15,7 @@ The available configuration options are:
 | Option    | Type            | Default                          | Comment                                                 |
 | --------- | --------------- | -------------------------------- | ------------------------------------------------------- |
 | `id`      | `number ∣ null` | `null`                           | The Anki note ID. This is usually managed by AnkiBridge |
-| `deck`    | `string`        | Defined in [settings](/settings) | The Anki deck to sync this note to                      |
+| `deck`    | `string`        | Defined in [settings](08-settings.md) | The Anki deck to sync this note to                      |
 | `tags`    | `Array<string>` | `[]`                             | A list of tags to apply to the note in Anki             |
 | `delete`  | `boolean`       | `false`                          | Whether to delete the note in Anki on the               |
 | `enabled` | `boolean`       | `true`                           | Whether to sync this note                               |

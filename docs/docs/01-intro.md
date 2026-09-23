@@ -1,7 +1,3 @@
----
-slug: /
----
-
 # 👋 AnkiBridge Introduction
 
 **AnkiBridge** is a plugin for [Obsidian] that allows seamless integration
@@ -10,20 +6,21 @@ with the [Anki] spaced-repetition software.
 You're **highly** encouraged to read through this documentation to get an
 understanding of how **AnkiBridge** works and pit-falls to avoid.
 
-:::danger Alpha Software
+> **Alpha Software**
+>
+>
+> Please note that **AnkiBridge** is still in the alpha stage.
+> Polite feedback is much appreciated.
+>
+> Once the features mentioned below in [Upcoming Features](#upcoming-features)
+> have all been implemented
+> AnkiBridge will enter a beta phase (versions `1.x.y`).
+>
+> **AnkiBridge does contain portions of code that modify files in your vault.
+> It could therefore delete data through a bug (though this _should_ never happen).
+> Having a recent backup of your data is _strongly_ encouraged.**
+>
 
-Please note that **AnkiBridge** is still in the alpha stage.
-Polite feedback is much appreciated.
-
-Once the features mentioned below in [Upcoming Features](#upcoming-features)
-have all been implemented
-AnkiBridge will enter a beta phase (versions `1.x.y`). 
-
-**AnkiBridge does contain portions of code that modify files in your vault.
-It could therefore delete data through a bug (though this _should_ never happen).
-Having a recent backup of your data is _strongly_ encouraged.**
-
-:::
 
 ## Features
 
@@ -99,8 +96,3 @@ changes to bridged notes in Anki will be reverted upon sync.__
 
 [Obsidian]: https://obsidian.md/
 [Anki]: https://apps.ankiweb.net/
-
-## 🙏 Support
-
-If you're finding **AnkiBridge** useful and wish to show your appreciation,
-go have a gander at the [🙏 Support](/support) page

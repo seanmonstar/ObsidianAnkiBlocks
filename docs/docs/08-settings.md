@@ -23,7 +23,7 @@ This page describes the settings that can be configured for **AnkiBridge** in Ob
 | Option        | Description                                                                                                                       |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | Fallback Deck | The default deck to put notes into                                                                                                |
-| Deck Map      | Files in the given folder will be put into the specified deck unless overridden in the [note configuration](/notes#configuration) |
+| Deck Map      | Files in the given folder will be put into the specified deck unless overridden in the [note configuration](50-notes.md#configuration) |
 
 ## 🕸 Networking Settings
 
@@ -37,13 +37,13 @@ This page describes the settings that can be configured for **AnkiBridge** in Ob
 
 | Option | Description                                                   |
 | ------ | ------------------------------------------------------------- |
-| …      | Each [blueprint](/blueprints) can be disabled or enabled here |
+| …      | Each [blueprint](40-blueprints.md) can be disabled or enabled here |
 
 ## ⚙ Processor Settings
 
 | Option | Description                                                   |
 | ------ | ------------------------------------------------------------- |
-| …      | Each [processor](/processors) can be disabled or enabled here |
+| …      | Each [processor](41-processors.md) can be disabled or enabled here |
 
 ## ⚙ Processor Configuration
 

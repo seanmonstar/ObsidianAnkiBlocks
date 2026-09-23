@@ -1,41 +1,20 @@
-# Website
+# Usage documentation
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+The original usage documentation is kept as Markdown; there is no documentation
+website to install, build, or deploy. Some historical descriptions describe the
+upstream project rather than this personal fork.
 
-### Installation
+- [Installation and AnkiConnect setup](docs/05-installation.md)
+- [Basic usage](docs/10-basic-usage.md)
+- [Settings](docs/08-settings.md)
+- [Card syntax / blueprints](docs/40-blueprints.md)
+- [Note configuration](docs/50-notes.md)
+- [Processors](docs/41-processors.md)
+- [Features](docs/20-features.md)
+- [Demonstrations](docs/30-demonstration.md)
+- [Auto-sync](docs/15-advanced-usage/10-auto-sync.md)
+- [Gotchas](docs/60-gotchas.md)
+- [Historical migrations](docs/70-migrations.md)
+- [Acknowledgements](docs/99-acknowledgement.md)
 
-```
-$ yarn
-```
-
-### Local Development
-
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+The older [demo](../docs_old/demo.md) is also retained as a syntax example.
