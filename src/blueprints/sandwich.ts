@@ -1,11 +1,8 @@
 import { Blueprint } from 'ankibridge/blueprints/base'
-import { GRAMMAR_LIBRARIES } from 'ankibridge/consts'
 import { NoteField } from 'ankibridge/entities/note'
-import sandwichGrammar from 'ankibridge/grammars/CardSandwich.pegjs'
+import sandwichParser from 'ankibridge/grammars/CardSandwich.pegjs'
 import { NoteBase } from 'ankibridge/notes/base'
-import { makeGrammar } from 'ankibridge/utils/grammar'
 import { dump } from 'js-yaml'
-import { generate } from 'peggy'
 
 export class SandwichBlueprint extends Blueprint {
     public static readonly id = 'Sandwich'
@@ -14,9 +11,7 @@ export class SandwichBlueprint extends Blueprint {
     public static readonly defaultConfigState = true
 
     protected async setupParser(): Promise<void> {
-        const grammar = await makeGrammar(sandwichGrammar, GRAMMAR_LIBRARIES)
-
-        this.parser = generate(grammar)
+        this.parser = sandwichParser
     }
 
     public renderAsText(note: NoteBase): string {

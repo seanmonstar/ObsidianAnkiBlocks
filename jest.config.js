@@ -5,6 +5,7 @@ module.exports = {
         '^ankibridge/(.*)$': '<rootDir>/src/$1',
     },
     transform: {
-        '^.+\\.(pegjs|js\\.static|svg_content|html)$': '<rootDir>/scripts/jest-text-transform.cjs',
+        '^.+\\.pegjs$': '<rootDir>/scripts/jest-grammar-transform.cjs',
+        '^.+\\.(js\\.static|svg_content|html)$': '<rootDir>/scripts/jest-text-transform.cjs',
     },
 }

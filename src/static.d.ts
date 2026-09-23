@@ -1,5 +1,5 @@
 declare module '*.pegjs' {
-    const content: any
+    const content: import('peggy').Parser
     export default content
 }
 

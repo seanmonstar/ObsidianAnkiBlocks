@@ -21,7 +21,7 @@ import {
     MarkdownRenderChild,
     MarkdownRenderer, MarkdownView, TFile,
 } from 'obsidian'
-import { Parser } from 'peggy'
+import type { Parser } from 'peggy'
 
 export abstract class Blueprint {
     public static readonly displayName: string

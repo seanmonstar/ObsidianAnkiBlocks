@@ -1,13 +1,10 @@
 import { CodeBlockBlueprint } from 'ankibridge/blueprints/base'
-import { GRAMMAR_LIBRARIES } from 'ankibridge/consts'
 import { NoteField } from 'ankibridge/entities/note'
-import basicCodeBlockGrammar from 'ankibridge/grammars/BasicCodeBlock.pegjs'
-import basicCodeBlockProcessorGrammar from 'ankibridge/grammars/BasicCodeBlockProcessor.pegjs'
+import basicCodeBlockParser from 'ankibridge/grammars/BasicCodeBlock.pegjs'
+import basicCodeBlockProcessorParser from 'ankibridge/grammars/BasicCodeBlockProcessor.pegjs'
 import { NoteBase, ParseConfig } from 'ankibridge/notes/base'
-import { makeGrammar } from 'ankibridge/utils/grammar'
 import { dump, YAMLException } from 'js-yaml'
 import { MarkdownPostProcessorContext, MarkdownRenderChild } from 'obsidian'
-import { generate } from 'peggy'
 
 export class BasicCodeBlockBlueprint extends CodeBlockBlueprint {
     public static readonly id = 'BasicCodeblock'
@@ -18,14 +15,8 @@ export class BasicCodeBlockBlueprint extends CodeBlockBlueprint {
     public readonly codeBlockLanguage: string = 'anki'
 
     protected async setupParser(): Promise<void> {
-        const grammar = await makeGrammar(basicCodeBlockGrammar, GRAMMAR_LIBRARIES)
-        this.parser = generate(grammar)
-
-        const codeblockGrammar = await makeGrammar(
-            basicCodeBlockProcessorGrammar,
-            GRAMMAR_LIBRARIES,
-        )
-        this.codeblockParser = generate(codeblockGrammar)
+        this.parser = basicCodeBlockParser
+        this.codeblockParser = basicCodeBlockProcessorParser
     }
 
     public renderAsText(note: NoteBase): string {

@@ -17,7 +17,8 @@ npm run test:ci
 
 `npm ci` installs the committed `package-lock.json` without changing dependency
 versions. The build type-checks the plugin and produces `main.js` and
-`styles.css` beside `manifest.json`. No website build or publishing step is needed.
+`styles.css` beside `manifest.json`. Card parsers are generated from the grammars
+during the build, so plugin startup does not load or run the Peggy compiler. No website build or publishing step is needed.
 Build and test tools are pinned in `package.json` and the lockfile. Runtime
 dependency upgrades are handled separately.
 
