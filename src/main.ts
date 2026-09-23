@@ -93,7 +93,6 @@ export default class AnkiBridgePlugin extends Plugin {
             new Notice(noticeContent, 0)
 
             this.settings.currentMigrationVersion = 1
-            await this.syncActiveFile()
         }
 
         await this.pingAnki()
