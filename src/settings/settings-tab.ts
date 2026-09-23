@@ -366,11 +366,10 @@ export class SettingsTab extends PluginSettingTab {
         // Periodic ping
         const periodicPingDesc = createFragment()
         periodicPingDesc.append(
-            'Pings Anki periodically at the set interval in seconds.',
+            'Keep checking after connecting (minimum interval: 15 seconds).',
             createEl('br'),
-            'Note: Due to a shortcoming in Electron this will produce a lot of errors',
-            'in console when pings are failing. These are harmless and safe to ignore, ',
-            'but cannot be suppresed.',
+            'When disconnected, retries automatically slow down to once every five minutes. ',
+            'Sync always checks immediately, even with this option off.',
         )
         new Setting(this.containerEl)
             .setName('Periodic Ping')
@@ -381,12 +380,7 @@ export class SettingsTab extends PluginSettingTab {
                 e.inputEl.style.marginRight = '20px'
                 e.onChange((value) => {
                     const interval = Number(value)
-                    if ((isNaN(interval) && value) || interval < 0.0) {
-                        this.display()
-                        return
-                    }
-
-                    if (interval === 0) {
+                    if (!Number.isFinite(interval) || interval < 15) {
                         return
                     }
 

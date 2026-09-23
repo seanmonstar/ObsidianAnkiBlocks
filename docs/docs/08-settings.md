@@ -31,7 +31,7 @@ This page describes the settings that can be configured for **AnkiBridge** in Ob
 | ------------------- | ---------------------------------------------------------------- |
 | AnkiConnect Address | The address where AnkiConnect exposes its API                    |
 | AnkiConnect Port    | The port where AnkiConnect exposes its API                       |
-| Periodic Ping       | How often to ping Anki to check if the connection is still alive |
+| Periodic Ping       | Optional checks after connecting (minimum 15 seconds). Disconnected retries back off to five minutes; sync checks immediately. |
 
 ## 📘 Blueprint Settings
 

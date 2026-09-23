@@ -3,6 +3,7 @@ import { NoteAction } from 'ankibridge/entities/note'
 import { SyncResult } from 'ankibridge/entities/other'
 import { Anki } from 'ankibridge/services/anki'
 import { Bridge } from 'ankibridge/services/bridge'
+import { ConnectionMonitor } from 'ankibridge/services/connection'
 import { Reader } from 'ankibridge/services/reader'
 import { DEFAULT_SETTINGS, Settings } from 'ankibridge/settings/settings'
 import { SettingsTab } from 'ankibridge/settings/settings-tab'
@@ -19,7 +20,7 @@ export default class AnkiBridgePlugin extends Plugin {
     private statusbar: HTMLElement
     public connectionStatus = false
 
-    private periodicPingIntervalId: number
+    private connectionMonitor: ConnectionMonitor
 
     async onload() {
         console.log(`Loading ${this.manifest.name} (${this.manifest.version})`)
@@ -70,6 +71,16 @@ export default class AnkiBridgePlugin extends Plugin {
             await this.syncActiveFile()
         })
 
+        this.setConnectionStatus(false)
+        this.connectionMonitor = new ConnectionMonitor(
+            () => this.anki.ping(),
+            (connected) => this.setConnectionStatus(connected),
+            () => {
+                if (!this.settings.periodicPingEnabled) return undefined
+                const seconds = this.settings.periodicPingInterval
+                return Number.isFinite(seconds) ? Math.max(15, seconds) * 1000 : 30_000
+            },
+        )
         this.setupPeriodicPing()
 
         this.addSettingTab(new SettingsTab(this.app, this))
@@ -94,14 +105,12 @@ export default class AnkiBridgePlugin extends Plugin {
 
             this.settings.currentMigrationVersion = 1
         }
-
-        await this.pingAnki()
     }
 
     async onunload() {
         console.log('Unloading ' + this.manifest.name)
 
-        this.teardownPeriodicPing()
+        this.connectionMonitor.stop()
         await this.teardownSerivces()
 
         await this.saveData(this.settings)
@@ -137,17 +146,8 @@ export default class AnkiBridgePlugin extends Plugin {
         console.error(this.manifest.name + ': ' + text, ...other)
     }
 
-    public async pingAnki(): Promise<boolean> {
-        let hasErrored: boolean
-        try {
-            await this.anki.ping()
-            hasErrored = false
-        } catch (e) {
-            hasErrored = true
-        }
-
-        this.setConnectionStatus(!hasErrored)
-        return !hasErrored
+    public pingAnki(): Promise<boolean> {
+        return this.connectionMonitor.check()
     }
 
     private setConnectionStatus(status: boolean): void {
@@ -167,22 +167,7 @@ export default class AnkiBridgePlugin extends Plugin {
     }
 
     public setupPeriodicPing(): void {
-        this.teardownPeriodicPing()
-
-        if (this.settings.periodicPingEnabled) {
-            this.periodicPingIntervalId = window.setInterval(
-                async () => await this.pingAnki(),
-                this.settings.periodicPingInterval * 1000,
-            )
-
-            this.registerInterval(this.periodicPingIntervalId)
-        }
-    }
-
-    private teardownPeriodicPing(): void {
-        if (this.periodicPingIntervalId !== undefined) {
-            window.clearInterval(this.periodicPingIntervalId)
-        }
+        this.connectionMonitor.start()
     }
 
     private shouldIgnoreFile(file: TFile): boolean {

@@ -149,7 +149,7 @@ export class Anki {
     }
 
     public async ping(): Promise<boolean> {
-        return (await this.invoke('version', 6, {}, 1)) === 6
+        return (await this.invoke('version', 6, {}, 0, 3000)) === 6
     }
     // Convenience methods
 
@@ -171,6 +171,7 @@ export class Anki {
         version = 6,
         params: Record<string, any> = {},
         retries = 5,
+        timeout = 0,
     ): Promise<any> {
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest()
@@ -178,11 +179,13 @@ export class Anki {
             xhr.addEventListener('error', () => {
                 if (retries--) {
                     console.log(PLUGIN_NAME + `: Failed to issue request, retrying... (${retries})`)
-                    resolve(this.invoke(action, version, params, retries))
+                    resolve(this.invoke(action, version, params, retries, timeout))
                 } else {
                     reject('failed to issue request')
                 }
             })
+
+            xhr.addEventListener('timeout', () => reject('failed to issue request'))
 
             xhr.addEventListener('load', () => {
                 try {
@@ -208,6 +211,7 @@ export class Anki {
             const payload = JSON.stringify({ action, version, params })
 
             xhr.open('POST', this.getHostString())
+            xhr.timeout = timeout
             xhr.send(payload)
         })
     }
