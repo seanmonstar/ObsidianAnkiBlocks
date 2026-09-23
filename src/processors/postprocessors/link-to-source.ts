@@ -26,7 +26,7 @@ export class LinkToSourcePostprocessor extends Postprocessor {
         )
 
         const anchor = createEl('a')
-        anchor.text = link.text
+        anchor.text = note.source.file.basename
         anchor.href = link.uri
 
         const linkParagraph = createEl('p')
