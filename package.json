@@ -1,6 +1,6 @@
 {
   "name": "obsidian-anki-blocks",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Sync flashcard blocks in Obsidian with Anki.",
   "keywords": [],
   "license": "MIT",
